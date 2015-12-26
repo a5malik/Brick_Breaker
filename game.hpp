@@ -10,7 +10,7 @@ using std::vector;
 #define HEIGHT  480
 #define WALL_WIDTH 10
 #define BRICK_LENGTH WIDTH/10
-#define BRICK_WIDTH HEIGHT/10
+#define BRICK_WIDTH HEIGHT/20
 #define PADDLE_LENGTH 120
 #define BALL_RADIUS  6
 

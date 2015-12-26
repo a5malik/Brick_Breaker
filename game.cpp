@@ -5,7 +5,7 @@
 #include <time.h>
 
 #define OFFSET 450
-#define MAX_BALL_VEL 500
+#define MAX_BALL_VEL 300
 
 
 
@@ -51,10 +51,21 @@ Game::Game()
 		brick br;
 		br.body = sf::RectangleShape(sf::Vector2f(BRICK_LENGTH, BRICK_WIDTH));
 		br.alive = true;
-		br.body.setPosition(15 + i*((BRICK_LENGTH)+BRICK_LENGTH), HEIGHT / 3);
+		br.body.setPosition(15 + 2.5*BRICK_LENGTH + i*(BRICK_LENGTH), HEIGHT / 2 - BRICK_WIDTH - i*BRICK_WIDTH);
 		br.body.setTexture(&mTexture);
 		bricks.push_back(br);
 	}
+	for (int i = 0; i < 5; i++)
+	{
+		if (i == 2) continue;
+		brick br;
+		br.body = sf::RectangleShape(sf::Vector2f(BRICK_LENGTH, BRICK_WIDTH));
+		br.alive = true;
+		br.body.setPosition(15 + 2.5* BRICK_LENGTH + i*(BRICK_LENGTH), HEIGHT / 2 - BRICK_WIDTH - 4*BRICK_WIDTH+ i*BRICK_WIDTH);
+		br.body.setTexture(&mTexture);
+		bricks.push_back(br);
+	}
+	/*
 	for (int i = 0; i < 4; i++)
 	{
 		brick br;
@@ -64,12 +75,12 @@ Game::Game()
 		br.body.setTexture(&mTexture);
 		bricks.push_back(br);
 	}
-	 
+	 */
 		
 		//mPlayer.setTexture(mTexture);
 	ball.setPosition(100.f, OFFSET - 5 - 10);
 	paddle.setPosition(100.f, OFFSET);
-	ball_vel = sf::Vector2f(0, -500);
+	ball_vel = sf::Vector2f(0, -400);
 
 	mFont.loadFromFile("Media/Sansation.ttf");
 	mStatisticsText.setFont(mFont);
